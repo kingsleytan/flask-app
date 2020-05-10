@@ -22,6 +22,11 @@ body {
   height: 60px;
 }
 
+.note {
+  position: fixed; 
+  bottom: 65px;
+}
+
 /* Margin and padding
 -------------------------------------------------- */
 .lg-margin-bottom {
