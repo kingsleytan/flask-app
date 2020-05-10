@@ -12,9 +12,6 @@ def create_app():
     app.config.from_object('config.settings')
     app.config.from_pyfile('settings.py', silent=True) # silent=True to avoid overriding production settings
 
-    @app.route('/')
-    def index():
-        a = "1"
-        return app.config['HELLO']
+    app.register_blueprint(page)
 
     return app
