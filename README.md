@@ -2,14 +2,14 @@
 An application to create SaaS-based software with Flask, Python, Docker, gunicorn, celery.
 
 ## Docker
-# First time docker build
+### First time docker build
 `docker-compose --build`
 
-# Subsequent up Docker server
+### Subsequent up Docker server
 `docker-compose up`
 
-# To remove docker compose image
+### To remove docker compose image
 `docker-compose rm -f`
 
-# To remove dangling docker image
+### To remove dangling docker image
 `docker rmi -f $(docker images -qf dangling=true)`
