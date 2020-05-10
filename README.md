@@ -8,6 +8,9 @@ An application to create SaaS-based software with Flask, Python, Docker, gunicor
 ### Subsequent up Docker server
 `docker-compose up`
 
+### To stop Docker server
+`docker-compose stop`
+
 ### To remove docker compose image
 `docker-compose rm -f`
 
