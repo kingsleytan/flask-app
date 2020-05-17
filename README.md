@@ -17,6 +17,8 @@ An application to create SaaS-based software with Flask, Python, Docker, gunicor
 ### To remove dangling docker image
 `docker rmi -f $(docker images -qf dangling=true)`
 
+### To check docker images
+`docker images`
 
 
 ## Pytest
@@ -42,3 +44,30 @@ snakeeyes/tests/page/test_views.py ....                                   [100%]
 
 =============================== 4 passed in 0.36s ===============================
 ```
+
+### Use docker check test coverage
+`docker-compose exec website py.test --cov-report term-missing --cov snakeeyes`
+- `term-missing` is to check the missing test
+
+Example of response (should expect 100% coverage):
+```
+----------- coverage: platform linux, python 3.7.5-final-0 -----------
+Name                                    Stmts   Miss  Cover   Missing
+---------------------------------------------------------------------
+snakeeyes/__init__.py                       0      0   100%
+snakeeyes/app.py                           10      0   100%
+snakeeyes/blueprints/__init__.py            0      0   100%
+snakeeyes/blueprints/page/__init__.py       1      0   100%
+snakeeyes/blueprints/page/views.py         11      0   100%
+snakeeyes/tests/__init__.py                 0      0   100%
+snakeeyes/tests/conftest.py                11      0   100%
+snakeeyes/tests/page/__init__.py            0      0   100%
+snakeeyes/tests/page/test_views.py         14      0   100%
+---------------------------------------------------------------------
+TOTAL                                      47      0   100%
+```
+
+### To run Flake8
+`docker-compose exec website flake8 .`
+`docker-compose exec website flake8 . --exclude __init__.py`
+- Note: Remember to import page by adding `from snakeeyes.blueprints.page import page`

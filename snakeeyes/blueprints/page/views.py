@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template
-from datetime import datetime
 
 page = Blueprint('page', __name__, template_folder='templates')
 
@@ -17,6 +16,7 @@ def terms():
 @page.route('/privacy')
 def privacy():
     return render_template('page/privacy.html')
+
 
 @page.route('/faq')
 def faq():
